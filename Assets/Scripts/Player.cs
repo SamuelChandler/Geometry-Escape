@@ -9,9 +9,15 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     public GameObject cameraTarget;
     public GameObject _aimCursor;
+    public GameObject pfRail;
+
+    private bool _railBeingCreated;
 
 
-    
+    private void Awake()
+    {
+        _railBeingCreated = false;
+    }
 
     private void Start()
     {
@@ -22,6 +28,11 @@ public class Player : MonoBehaviour
     {
         
         UpdateAngle();
+
+        if(Input.GetMouseButtonDown(0) && !_railBeingCreated) {
+            Instantiate(pfRail);
+            _railBeingCreated=true;
+        }
         
     }
 

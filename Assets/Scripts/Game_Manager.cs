@@ -9,7 +9,10 @@ public class Game_Manager : MonoBehaviour
 {
 
     public static Game_Manager instance;
+
     public Vector2 PlayerPos;
+    public GameObject player;
+
     public Vector3 endpoint;
     private int points; 
 
@@ -30,6 +33,12 @@ public class Game_Manager : MonoBehaviour
         SceneManager.LoadScene(2);// loads the you lose screen 
     }
 
+    public void destroyPlayer()
+    {
+        //any events for destroying the player
+        Destroy(player);
+    }
+    
     
     
 }

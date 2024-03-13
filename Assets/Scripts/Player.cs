@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] public float speed;
 
-    private Rigidbody rb;
+    Rigidbody2D rb;
     public GameObject cameraTarget;
     public GameObject _aimCursor;
     public GameObject pfRail;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -73,5 +73,12 @@ public class Player : MonoBehaviour
         Vector2 direction = new Vector2(mousePosition.x, mousePosition.y);
 
         transform.up = direction;
+    }
+
+
+    private void OnDestroy()
+    {
+        Destroy(currentRail_Created);
+        Destroy(currentRail_Riding);
     }
 }

@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+
+
     void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    //when player hits object
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.name == "Player")
+        {
+            Game_Manager.instance.destroyPlayer();
+        }
     }
 }

@@ -54,15 +54,17 @@ public class Player : MonoBehaviour
             _traveling=true;
             dest = Game_Manager.instance.endpoint;
         }
-        
+
+        if (_traveling)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Game_Manager.instance.endpoint, speed * Time.deltaTime);
+        }
+
     }
 
     private void FixedUpdate()
     {
-        if (_traveling)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,Game_Manager.instance.endpoint, speed * Time.deltaTime);
-        }
+        
 
     }
 

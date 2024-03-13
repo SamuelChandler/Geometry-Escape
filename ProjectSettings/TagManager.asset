@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 'Rails '
+    uniqueID: 3213223789
+    locked: 0
+  - name: Enemies
+    uniqueID: 265410353
+    locked: 0
+  - name: Player
+    uniqueID: 4191981355
+    locked: 0
+  - name: UI
+    uniqueID: 1584552349
+    locked: 0

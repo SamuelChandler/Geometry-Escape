@@ -13,13 +13,11 @@ public class Rail : MonoBehaviour
 
     private Vector3 NextSize;
     private bool grow;
-    private bool atMaxLength;
 
     private void Awake()
     {
         NextSize = transform.localScale;
         grow = true;
-        atMaxLength = false;
     }
 
     private void Update()
@@ -35,20 +33,19 @@ public class Rail : MonoBehaviour
     {
         //on Left Click hold
         if(grow) {          
-            if (!atMaxLength) {
-                Vector3 NewSize = new Vector3(transform.localScale.x, transform.localScale.y * _increaseRate, transform.localScale.z);
-                transform.localScale = NewSize;
-            }
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + _increaseRate, transform.localScale.z);
             UpdateAngle();
             UpdatePosition();
-            atMaxLength = isTouchingMouse();
+            
+            
+            
         }
 
     }
 
     private void UpdateAngle()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _beginning.transform.position;
         Vector2 direction = new Vector2(mousePosition.x, mousePosition.y);
 
         transform.up = direction;

@@ -33,8 +33,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        
+        //update position and angle
         UpdateAngle();
+        Game_Manager.instance.PlayerPos = this.transform.position;
 
         if(Input.GetMouseButtonDown(0) && !_railBeingCreated) {
             currentRail_Created = Instantiate(pfRail);

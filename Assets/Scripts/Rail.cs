@@ -27,18 +27,18 @@ public class Rail : MonoBehaviour
             grow = false;
             Game_Manager.instance.endpoint = _ending.transform.position;
         }
+        if (grow)
+        {
+            UpdateAngle();
+            UpdatePosition();
+        }
     }
 
     public void FixedUpdate()
     {
         //on Left Click hold
         if(grow) {          
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + _increaseRate, transform.localScale.z);
-            UpdateAngle();
-            UpdatePosition();
-            
-            
-            
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + _increaseRate, transform.localScale.z); 
         }
 
     }

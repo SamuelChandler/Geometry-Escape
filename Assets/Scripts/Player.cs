@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     }
 
     private void UpdateAngle() { 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         Vector2 direction = new Vector2(mousePosition.x, mousePosition.y);
 
         transform.up = direction;

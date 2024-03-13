@@ -6,6 +6,8 @@ using UnityEngine;
 public class Rail : MonoBehaviour
 {
     [SerializeField] public float _increaseRate;
+    [SerializeField] public GameObject _beginning;
+    [SerializeField] public GameObject _ending;
 
 
     private Vector3 NextSize;

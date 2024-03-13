@@ -14,6 +14,8 @@ public class Game_Manager : MonoBehaviour
     public GameObject player;
 
     public Vector3 endpoint;
+
+    public int Lives;
     private int points; 
 
     void Awake()
@@ -37,6 +39,12 @@ public class Game_Manager : MonoBehaviour
     {
         //any events for destroying the player
         Destroy(player);
+        Lives--;
+
+        if (Lives == 0)
+        {
+            SceneManager.LoadScene(2); //go to losre screen
+        }
     }
     
     

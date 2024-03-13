@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game_Manager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Game_Manager : MonoBehaviour
 
     public Vector3 endpoint;
 
+    [SerializeField] Image Life1, Life2, Life3, Life4;
+
     public int Lives;
     private int points; 
 
@@ -22,7 +25,10 @@ public class Game_Manager : MonoBehaviour
     {
         instance = this;
         Application.targetFrameRate = 60;
-        
+
+        //initialize life counter
+        updateLifeCounter(Lives);
+
     }
 
     void PointChange(int delta)
@@ -40,13 +46,56 @@ public class Game_Manager : MonoBehaviour
         //any events for destroying the player
         Destroy(player);
         Lives--;
+        updateLifeCounter(Lives);
 
         if (Lives == 0)
         {
             SceneManager.LoadScene(2); //go to losre screen
         }
     }
-    
-    
+
+    private void updateLifeCounter(int l)
+    {
+        switch (l)
+        {
+            case 1:
+                Life1.gameObject.SetActive(false);
+                Life2.gameObject.SetActive(false);
+                Life3.gameObject.SetActive(false);
+                Life4.gameObject.SetActive(false);
+                break;
+            case 2:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(false);
+                Life3.gameObject.SetActive(false);
+                Life4.gameObject.SetActive(false);
+                break;
+            case 3:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(true);
+                Life3.gameObject.SetActive(false);
+                Life4.gameObject.SetActive(false);
+                break;
+            case 4:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(true);
+                Life3.gameObject.SetActive(true);
+                Life4.gameObject.SetActive(false);
+                break;
+            case 5:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(true);
+                Life3.gameObject.SetActive(true);
+                Life4.gameObject.SetActive(true);
+                break;
+            default:
+                Life1.gameObject.SetActive(false);
+                Life2.gameObject.SetActive(false);
+                Life3.gameObject.SetActive(false);
+                Life4.gameObject.SetActive(false);
+                break;
+
+        }
+    }
     
 }

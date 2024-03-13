@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8478261543058495598}
   - component: {fileID: 6140754825815217225}
   - component: {fileID: -6541213853027895252}
-  m_Layer: 0
+  - component: {fileID: 3687065688152299165}
+  m_Layer: 4
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ad59c7cc3f4b24a914dfdfa9b31367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  cameraTarget: {fileID: 0}
+  _aimCursor: {fileID: 0}
+  pfRail: {fileID: 0}
+  currentRail_Created: {fileID: 0}
+  currentRail_Riding: {fileID: 0}
+--- !u!210 &3687065688152299165
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588056654014259718}
+  m_Enabled: 1
+  m_SortingLayerID: -102985941
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortAtRoot: 1

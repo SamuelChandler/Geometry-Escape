@@ -27,11 +27,22 @@ public class Rail : MonoBehaviour
 
     public void FixedUpdate()
     {
-        //on Left Click
+        //on Left Click hold
         if(grow) {
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * _increaseRate, transform.localScale.z);
+            UpdateAngle();
         }
 
+
+
         
+    }
+
+    private void UpdateAngle()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = new Vector2(mousePosition.x, mousePosition.y);
+
+        transform.up = direction;
     }
 }

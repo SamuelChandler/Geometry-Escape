@@ -25,6 +25,7 @@ public class Rail : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             grow = false;
+            Game_Manager.instance.endpoint = _ending.transform.position;
         }
     }
 

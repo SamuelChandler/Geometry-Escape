@@ -19,11 +19,15 @@ public class Player : MonoBehaviour
     public GameObject currentRail_Riding;
 
     private bool _railBeingCreated;
+    private bool _traveling;
+
+    private Vector2 dest;
 
 
     private void Awake()
     {
         _railBeingCreated = false;
+        _traveling = false;
     }
 
     private void Start()
@@ -47,13 +51,18 @@ public class Player : MonoBehaviour
             Destroy(currentRail_Riding);
             currentRail_Riding = currentRail_Created;
             currentRail_Created = null;
+            _traveling=true;
+            dest = Game_Manager.instance.endpoint;
         }
         
     }
 
     private void FixedUpdate()
     {
-        
+        if (_traveling)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,Game_Manager.instance.endpoint, speed * Time.deltaTime);
+        }
 
     }
 

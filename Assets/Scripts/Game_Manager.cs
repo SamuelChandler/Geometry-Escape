@@ -9,6 +9,7 @@ public class Game_Manager : MonoBehaviour
 
     public static Game_Manager instance;
     public Vector2 PlayerPos;
+    public Vector3 endpoint;
 
     void Awake()
     {

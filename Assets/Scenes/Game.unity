@@ -296,12 +296,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseEnemy: {fileID: 9141384123035854083, guid: 379758fa90274734c816cbd93cf32cba, type: 3}
-  spawnTimer: 1
+  spawnTimer: 4
+  DifTimer: 10
   left: -90
   right: 90
   top: 40
   bottom: -40
-  BaseSpeed: 20
+  BaseSpeed: 10
 --- !u!4 &171049811
 Transform:
   m_ObjectHideFlags: 0

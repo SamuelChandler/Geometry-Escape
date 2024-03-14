@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ad59c7cc3f4b24a914dfdfa9b31367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   cameraTarget: {fileID: 0}
   _aimCursor: {fileID: 0}
   pfRail: {fileID: 4737534197447640866, guid: d0006487dc2f4734bb15067fc03ea6b1, type: 3}

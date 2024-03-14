@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -53,6 +54,8 @@ public class Game_Manager : MonoBehaviour
             SceneManager.LoadScene(2); //go to losre screen
         }
     }
+
+    
 
     private void updateLifeCounter(int l)
     {

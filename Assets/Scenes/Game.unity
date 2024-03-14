@@ -935,6 +935,7 @@ MonoBehaviour:
   Life2: {fileID: 86531205}
   Life3: {fileID: 280115431}
   Life4: {fileID: 2022328126}
+  _scoreCounter: {fileID: 693793574}
   Lives: 4
 --- !u!4 &694691450
 Transform:

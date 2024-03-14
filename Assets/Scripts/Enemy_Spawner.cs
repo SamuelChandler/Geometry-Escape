@@ -83,10 +83,10 @@ public class Enemy_Spawner : MonoBehaviour
                 break;
             default:
                 break;
-
         }
 
-        
+        //add points for a spawned enemy 
+        Game_Manager.instance.PointChange(3);
     }
 
 

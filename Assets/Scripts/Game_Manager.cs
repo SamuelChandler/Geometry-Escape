@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,9 +22,10 @@ public class Game_Manager : MonoBehaviour
     public Vector3 endpoint;
 
     [SerializeField] Image Life1, Life2, Life3, Life4;
+    [SerializeField] GameObject _scoreCounter;
 
     public int Lives;
-    private int points; 
+    private int points = 0; 
 
     void Awake()
     {
@@ -36,9 +38,16 @@ public class Game_Manager : MonoBehaviour
         playerGO = Instantiate(playerPF);
     }
 
-    void PointChange(int delta)
+    private void FixedUpdate()
+    {
+        PointChange(1); //get 1 point every frame 
+    }
+
+    public void PointChange(int delta)
     {
         points += delta;
+        var textbox = _scoreCounter.GetComponent<TextMeshProUGUI>();
+        textbox.text= points.ToString();
     }
 
     void EndGame()
@@ -60,6 +69,7 @@ public class Game_Manager : MonoBehaviour
         
         if (Lives == 0)
         {
+            PlayerPrefs.SetInt("p", points); //save points for the next scene
             EndGame(); //go to losre screen
         }
 

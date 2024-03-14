@@ -5,11 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
-
-    //speed and direction of the enemy, should be defined on creation
-    public float speed;
-    public Vector2 direction;
-
+    int EnemyLayer = 0;
 
     void Start()
     {
@@ -19,7 +15,7 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        rb.AddForce(new Vector2(direction.x * speed, direction.y * speed));
+        
     }
 
     //when player hits object

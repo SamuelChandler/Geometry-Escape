@@ -7,17 +7,15 @@ Idea is to enorperate a unique movment style with a survival arcade game to try 
 Highest Score Wins :)
 
 ## Next Tasks 
-### Tommorrow
+### Today
 - Enemy Spawning
-- Start Screen
-- adjusting speeds for gameplay
 
-### 2 days 
+### Tommorrow
 - enemy ramp up 
 - Score Board
 - settings 
 
-### 3 days 
+### 2 days 
 - bug fixing 
 - polishing
 

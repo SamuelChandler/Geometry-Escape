@@ -25,6 +25,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (Game_Manager.instance.PlayerDied)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //when player hits object

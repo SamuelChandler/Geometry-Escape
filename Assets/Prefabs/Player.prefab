@@ -118,7 +118,7 @@ SortingGroup:
   m_SortingLayerID: -102985941
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_SortAtRoot: 1
+  m_SortAtRoot: 0
 --- !u!331 &1814621224937335925
 SpriteMask:
   m_ObjectHideFlags: 0

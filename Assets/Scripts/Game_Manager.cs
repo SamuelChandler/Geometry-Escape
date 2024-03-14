@@ -13,7 +13,10 @@ public class Game_Manager : MonoBehaviour
     public static Game_Manager instance;
 
     public Vector2 PlayerPos;
-    public GameObject player;
+    public Player player;
+    public GameObject playerGO;
+    public GameObject playerPF;
+    public bool PlayerDied;
 
     public Vector3 endpoint;
 
@@ -26,10 +29,11 @@ public class Game_Manager : MonoBehaviour
     {
         instance = this;
         Application.targetFrameRate = 60;
-
+        PlayerDied = false;
         //initialize life counter
         updateLifeCounter(Lives);
 
+        playerGO = Instantiate(playerPF);
     }
 
     void PointChange(int delta)
@@ -45,7 +49,9 @@ public class Game_Manager : MonoBehaviour
     public void destroyPlayer()
     {
         //any events for destroying the player
-        Destroy(player);
+        
+        PlayerDied = true;
+
         Lives--;
         updateLifeCounter(Lives);
 
@@ -53,9 +59,15 @@ public class Game_Manager : MonoBehaviour
         {
             SceneManager.LoadScene(2); //go to losre screen
         }
+
+        SpawnPlayer();
     }
 
-    
+    private void SpawnPlayer()
+    {
+        playerGO = Instantiate(playerPF);
+        PlayerDied = false;
+    }
 
     private void updateLifeCounter(int l)
     {

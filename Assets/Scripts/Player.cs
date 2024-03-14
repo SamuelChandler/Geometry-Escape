@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,13 +23,18 @@ public class Player : MonoBehaviour
     private bool _traveling;
 
     private Vector2 dest;
+    [SerializeField] private GameObject VC;
+    [SerializeField] private CinemachineVirtualCamera vcam;
 
 
     private void Awake()
     {
+        Game_Manager.instance.player = this;
         _railBeingCreated = false;
         _traveling = false;
+
     }
+
 
     private void Start()
     {
@@ -37,9 +43,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        //update camera
+        Camera_Controller.instance.vcam.Follow = transform;
+        Camera_Controller.instance.vcam.LookAt = transform;
+
         //update position and angle
         UpdateAngle();
-        Game_Manager.instance.PlayerPos = this.transform.position;
+        Game_Manager.instance.PlayerPos = transform.position;
 
         if(Input.GetMouseButtonDown(0) && !_railBeingCreated) {
             currentRail_Created = Instantiate(pfRail);
@@ -75,10 +85,11 @@ public class Player : MonoBehaviour
         transform.up = direction;
     }
 
-
-    private void OnDestroy()
+    public void DestroyMyself()
     {
         Destroy(currentRail_Created);
         Destroy(currentRail_Riding);
+        Destroy(gameObject);
+
     }
 }

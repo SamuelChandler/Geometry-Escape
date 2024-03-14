@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //if player has died destroy all enemies on screen 
         if (Game_Manager.instance.PlayerDied)
         {
             Destroy(gameObject);
@@ -35,9 +36,11 @@ public class Enemy : MonoBehaviour
     //when player hits object
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (!Game_Manager.instance.PlayerDied)
         {
+            Game_Manager.instance.PlayerDied = true;
             Game_Manager.instance.destroyPlayer();
+            
         }
     }
 

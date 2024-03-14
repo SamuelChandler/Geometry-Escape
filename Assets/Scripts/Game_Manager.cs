@@ -49,24 +49,30 @@ public class Game_Manager : MonoBehaviour
     public void destroyPlayer()
     {
         //any events for destroying the player
-        
-        PlayerDied = true;
 
         Lives--;
         updateLifeCounter(Lives);
 
+        //destroy all enemies 
+
+        //destroy curent player 
+        player.DestroyMyself();
+        
         if (Lives == 0)
         {
-            SceneManager.LoadScene(2); //go to losre screen
+            EndGame(); //go to losre screen
         }
 
+        
+
+
+        //spawn new player
         SpawnPlayer();
     }
 
     private void SpawnPlayer()
     {
         playerGO = Instantiate(playerPF);
-        PlayerDied = false;
     }
 
     private void updateLifeCounter(int l)

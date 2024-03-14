@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Game_Manager.instance.PlayerDied) { Game_Manager.instance.PlayerDied = false; }
+
         //update camera
         Camera_Controller.instance.vcam.Follow = transform;
         Camera_Controller.instance.vcam.LookAt = transform;
@@ -81,7 +83,6 @@ public class Player : MonoBehaviour
     private void UpdateAngle() { 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         Vector2 direction = new Vector2(mousePosition.x, mousePosition.y);
-
         transform.up = direction;
     }
 

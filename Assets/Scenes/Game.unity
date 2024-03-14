@@ -295,9 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b12b932a147bd44af6d9a404e2b9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseEnemy: {fileID: 9141384123035854083, guid: 379758fa90274734c816cbd93cf32cba, type: 3}
+  BaseEnemyLR: {fileID: 9141384123035854083, guid: 379758fa90274734c816cbd93cf32cba, type: 3}
+  BaseEnemyTB: {fileID: 9141384123035854083, guid: 25707eb0f6122024d899e1e45d4d53dc, type: 3}
   spawnTimer: 4
   DifTimer: 10
+  DifCounter: 4
   left: -90
   right: 90
   top: 40
@@ -504,10 +506,10 @@ RectTransform:
   - {fileID: 2022328125}
   m_Father: {fileID: 1176887488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -415.23, y: 197.61}
-  m_SizeDelta: {x: 206.537, y: 60.777}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 102.76999, y: -29.890015}
+  m_SizeDelta: {x: 206.53699, y: 60.777008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404196559
 MonoBehaviour:
@@ -778,9 +780,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1176887488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -405, y: -203}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 106.04001, y: 24.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693793576

@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy_Spawner : MonoBehaviour
 {
 
-    [SerializeField] private GameObject BaseEnemy;
+    [SerializeField] private GameObject BaseEnemyLR, BaseEnemyTB;
 
     [SerializeField] private float spawnTimer = 3.5f;
     [SerializeField] private float DifTimer = 10f;
+
+    [SerializeField] private int DifCounter;
 
     [SerializeField] private float left, right, top, bottom;
 
@@ -22,6 +25,7 @@ public class Enemy_Spawner : MonoBehaviour
     Vector2 spawnPos = Vector2.zero;
     void Start()
     {
+        DifCounter = 0;
         setSpawnPoints();
         SpawnEnemyBase_RandLocation();
         StartCoroutine(spawnerBase());
@@ -40,6 +44,7 @@ public class Enemy_Spawner : MonoBehaviour
         yield return new WaitForSeconds(DifTimer);
         spawnTimer -= 0.1f;
         BaseSpeed += 0.1f;
+        DifCounter += 1;
         StartCoroutine(IncreaseDifficulty());
     }
 
@@ -52,18 +57,29 @@ public class Enemy_Spawner : MonoBehaviour
 
     private void SpawnEnemyBase_RandLocation()
     {
-        Position spawn = (Position)Random.Range(0, spawnPoints.Length);
+        Position spawn;
+        if (DifCounter < 3) {spawn = (Position)Random.Range(0, 2); }
+        else{ spawn = (Position)Random.Range(0, 4); }
+        
 
         GameObject Created;
 
         switch (spawn){
             case Position.Left:
-                Created = Instantiate(BaseEnemy, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[0], new Quaternion(0,0,0,0));
+                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[0], new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(1*BaseSpeed, 0 * BaseSpeed));
                 break;
             case Position.Right:
-                Created = Instantiate(BaseEnemy, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[1], new Quaternion(-1, 0, 0, 0));
+                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[1], new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1 * BaseSpeed, 0 * BaseSpeed));
+                break;
+            case Position.Top:
+                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[2], new Quaternion());
+                Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(0 * BaseSpeed, -1 * BaseSpeed));
+                break;
+            case Position.Bottom:
+                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[3], new Quaternion());
+                Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(0 * BaseSpeed, 1 * BaseSpeed));
                 break;
             default:
                 break;

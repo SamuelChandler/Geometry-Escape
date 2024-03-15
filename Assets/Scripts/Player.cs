@@ -5,6 +5,11 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] public float speed;
+    [SerializeField] public float speedUp;
+    private bool SUP;
+
+    public float energy;
+    public float energyMax = 100;
 
     Rigidbody2D rb;
     public GameObject cameraTarget;
@@ -22,11 +27,16 @@ public class Player : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera vcam;
 
 
+
+
+
     private void Awake()
     {
         Game_Manager.instance.player = this;
         _railBeingCreated = false;
         _traveling = false;
+        SUP = false;
+        energy = energyMax;
 
     }
 
@@ -62,16 +72,35 @@ public class Player : MonoBehaviour
             dest = Game_Manager.instance.endpoint;
         }
 
+        if (Input.GetMouseButtonDown(1)){SUP = true;}
+        if (Input.GetMouseButtonUp(1)){ SUP = false;}
+        if(energy <= 0) { SUP = false; }
+
         if (_traveling)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Game_Manager.instance.endpoint, speed * Time.deltaTime);
+            if (SUP)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, Game_Manager.instance.endpoint, speedUp * Time.deltaTime);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, Game_Manager.instance.endpoint, speed * Time.deltaTime);
+            }
+            
         }
 
     }
 
     private void FixedUpdate()
     {
-        
+        if (_traveling && SUP) { 
+            energy -= 0.5f;
+            EnergyBar.instance.SetEnergy(energy, energyMax);  
+        }else if (energy <= energyMax)
+        {
+            energy += 0.5f;
+            EnergyBar.instance.SetEnergy(energy, energyMax);
+        }
 
     }
 

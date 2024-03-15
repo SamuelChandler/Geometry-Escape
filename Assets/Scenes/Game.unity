@@ -502,10 +502,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 755405098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: 100, y: 8.452}
+  m_SizeDelta: {x: 100, y: 0.45199966}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &399358223
 MonoBehaviour:
@@ -1039,6 +1039,7 @@ GameObject:
   - component: {fileID: 755405100}
   - component: {fileID: 755405099}
   - component: {fileID: 755405101}
+  - component: {fileID: 755405102}
   m_Layer: 5
   m_Name: Energy
   m_TagString: Untagged
@@ -1063,8 +1064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -73.5}
-  m_SizeDelta: {x: 100, y: 7.915}
+  m_AnchoredPosition: {x: 0, y: -78.3}
+  m_SizeDelta: {x: 100, y: 6.407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755405099
 MonoBehaviour:
@@ -1117,6 +1118,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 399358223}
+--- !u!210 &755405102
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755405097}
+  m_Enabled: 1
+  m_SortingLayerID: 1584552349
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &987483559
 GameObject:
   m_ObjectHideFlags: 0

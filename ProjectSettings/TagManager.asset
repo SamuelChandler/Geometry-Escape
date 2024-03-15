@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
+  - pause
   - 
   - 
-  - enemy
   - 
   - 
   - 
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1584552349
+    locked: 0
+  - name: PauseMenu
+    uniqueID: 2818698375
     locked: 0

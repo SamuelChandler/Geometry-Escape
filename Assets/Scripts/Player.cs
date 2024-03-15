@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     public GameObject currentRail_Created;
     public GameObject currentRail_Riding;
 
-    private bool _railBeingCreated;
-    private bool _traveling;
+    public bool _railBeingCreated;
+    public bool _traveling;
 
     private Vector2 dest;
     [SerializeField] private GameObject VC;

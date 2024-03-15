@@ -33,6 +33,8 @@ public class Game_Manager : MonoBehaviour
         playerGO = Instantiate(playerPF);
     }
 
+    
+
     private void FixedUpdate()
     {
         PointChange(1); //get 1 point every frame 

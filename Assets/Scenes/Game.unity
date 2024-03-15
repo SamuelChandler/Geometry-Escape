@@ -374,9 +374,9 @@ MonoBehaviour:
   BaseEnemyTB: {fileID: 9141384123035854083, guid: 25707eb0f6122024d899e1e45d4d53dc, type: 3}
   spawnTimer: 4
   DifTimer: 10
-  DifCounter: 4
-  left: -90
-  right: 90
+  DifCounter: 0
+  left: -70
+  right: 70
   top: 40
   bottom: -40
   BaseSpeed: 10

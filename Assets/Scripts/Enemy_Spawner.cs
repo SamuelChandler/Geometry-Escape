@@ -60,25 +60,29 @@ public class Enemy_Spawner : MonoBehaviour
         Position spawn;
         if (DifCounter < 3) {spawn = (Position)Random.Range(0, 2); }
         else{ spawn = (Position)Random.Range(0, 4); }
-        
 
+        Vector3 spawnedPos;
         GameObject Created;
 
         switch (spawn){
             case Position.Left:
-                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[0], new Quaternion());
+                spawnedPos = new Vector3(left,Random.Range(top,bottom)/2,0);
+                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnedPos, new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(1*BaseSpeed, 0 * BaseSpeed));
                 break;
             case Position.Right:
-                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[1], new Quaternion());
+                spawnedPos = new Vector3(right, Random.Range(top, bottom) / 2, 0);
+                Created = Instantiate(BaseEnemyLR, (Vector3)Game_Manager.instance.PlayerPos + spawnedPos, new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1 * BaseSpeed, 0 * BaseSpeed));
                 break;
             case Position.Top:
-                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[2], new Quaternion());
+                spawnedPos = new Vector3(Random.Range(left, right) / 2, top, 0);
+                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnedPos, new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(0 * BaseSpeed, -1 * BaseSpeed));
                 break;
             case Position.Bottom:
-                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnPoints[3], new Quaternion());
+                spawnedPos = new Vector3(Random.Range(left, right) / 2, bottom, 0);
+                Created = Instantiate(BaseEnemyTB, (Vector3)Game_Manager.instance.PlayerPos + spawnedPos, new Quaternion());
                 Created.GetComponent<Rigidbody2D>().AddForce(new Vector2(0 * BaseSpeed, 1 * BaseSpeed));
                 break;
             default:

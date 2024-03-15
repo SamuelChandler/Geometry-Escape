@@ -6,10 +6,6 @@ Idea is to enorperate a unique movment style with a survival arcade game to try 
 
 Highest Score Wins :)
 
-### Today 
-- settings 
-- Music
-- Speed up button
 
 ## Music Credit 
 In game Song is called Stardust by Danijel Zambo. 
